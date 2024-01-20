@@ -23,6 +23,7 @@
             android:parentActivityName=".MainActivity"
             android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
         <activity
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

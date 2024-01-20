@@ -2,9 +2,13 @@ package com.example.recordkeeper
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils.replace
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.commit
 import com.example.recordkeeper.databinding.ActivityMainBinding
 
@@ -17,28 +21,46 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.bottomNav.setOnItemReselectedListener {
-            if(it.itemId == R.id.nav_cycling){
-                Log.d("onCyclingClicked", it.itemId.toString())
-                onCyclingClicked()
-            }
-            else if(it.itemId == R.id.nav_running){
-                Log.d("onRunningClicked", it.itemId.toString())
-                onRunningClicked()
+
+            when (it.itemId) {
+                R.id.nav_cycling -> onCyclingClicked()
+                R.id.nav_running -> onRunningClicked()
             }
         }
-
-
-
     }
 
-    fun onRunningClicked(){
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.toolbar, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
+        R.id.reset_running -> {
+            Toast.makeText(this, "reset_running", Toast.LENGTH_SHORT).show()
+            true
+        }
+        R.id.reset_cycling -> {
+            Toast.makeText(this, "reset_cycling", Toast.LENGTH_SHORT).show()
+            true
+        }
+        R.id.reset_all -> {
+            Toast.makeText(this, "reset_all", Toast.LENGTH_SHORT).show()
+            true
+        }
+        else -> {
+            super.onOptionsItemSelected(item)
+            true
+        }
+    }
+
+    fun onRunningClicked() {
         //handles fragments
         supportFragmentManager.commit {
             replace(R.id.frame_content, RunningFragment())
         }
     }
 
-    fun onCyclingClicked(){
+    fun onCyclingClicked() {
         //handles fragments
         supportFragmentManager.commit {
             replace(R.id.frame_content, CyclingFragment())
