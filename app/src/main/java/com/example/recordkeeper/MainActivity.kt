@@ -2,6 +2,7 @@ package com.example.recordkeeper
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import androidx.fragment.app.commit
@@ -17,9 +18,11 @@ class MainActivity : AppCompatActivity() {
 
         binding.bottomNav.setOnItemReselectedListener {
             if(it.itemId == R.id.nav_cycling){
+                Log.d("onCyclingClicked", it.itemId.toString())
                 onCyclingClicked()
             }
             else if(it.itemId == R.id.nav_running){
+                Log.d("onRunningClicked", it.itemId.toString())
                 onRunningClicked()
             }
         }
