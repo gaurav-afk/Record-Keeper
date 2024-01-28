@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.recordkeeper.databinding.FragmentRunningBinding
+import com.example.recordkeeper.editRecord.EditRecordActivity
 
 class RunningFragment:Fragment() {
 
@@ -26,13 +27,16 @@ class RunningFragment:Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setUpClickListener()
     }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+    }
     override fun onResume() {
         super.onResume()
         displayRecords()
     }
 
     private fun setUpClickListener(){
-
         binding.container5km.setOnClickListener{ launchRunningRecordScreen(distance = "5km") }
         binding.container10km.setOnClickListener{ launchRunningRecordScreen(distance = "10km") }
         binding.containerHalfMarathon.setOnClickListener{ launchRunningRecordScreen(distance = "Half Marathon") }
@@ -41,7 +45,6 @@ class RunningFragment:Fragment() {
 
     private fun displayRecords(){
         val runningPreferences: SharedPreferences = requireContext().getSharedPreferences("running", Context.MODE_PRIVATE)
-
         binding.textView5kmRecord.text = runningPreferences.getString("5km record", null)
         binding.textView5KmDate.text = runningPreferences.getString("5km date", null)
         binding.textView10kmRecord.text = runningPreferences.getString("10km record", null)
@@ -53,8 +56,8 @@ class RunningFragment:Fragment() {
     }
 
     private fun launchRunningRecordScreen(distance: String) {
-        val intent = Intent(context, EditRunningRecordActivity::class.java)
-        intent.putExtra("distance", distance)
+        val intent = Intent(context, EditRecordActivity::class.java)
+        intent.putExtra("screen_data", EditRecordActivity.ScreenData(distance, "running", "Time"))
         startActivity(intent)
     }
 }
