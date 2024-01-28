@@ -2,15 +2,14 @@ package com.example.recordkeeper
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.TextUtils.replace
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.commit
+import com.example.recordkeeper.cycling.CyclingFragment
 import com.example.recordkeeper.databinding.ActivityMainBinding
+import com.example.recordkeeper.running.RunningFragment
 
 class MainActivity : AppCompatActivity() {
 

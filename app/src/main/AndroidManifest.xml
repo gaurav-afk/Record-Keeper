@@ -15,10 +15,10 @@
         <activity
             android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
             android:parentActivityName=".MainActivity"
-            android:name=".EditCyclingRecordActivity"
+            android:name=".cycling.EditCyclingRecordActivity"
             android:exported="false" />
         <activity
-            android:name=".EditRunningRecordActivity"
+            android:name=".running.EditRunningRecordActivity"
             android:exported="false"
             android:parentActivityName=".MainActivity"
             android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />

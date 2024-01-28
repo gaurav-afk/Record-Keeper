@@ -1,7 +1,8 @@
-package com.example.recordkeeper
+package com.example.recordkeeper.cycling
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.recordkeeper.R
 
 class EditCyclingRecordActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

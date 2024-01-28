@@ -62,7 +62,7 @@
                 android:padding="12dp">
 
                 <TextView
-                    android:id="@+id/text_view_5km_value"
+                    android:id="@+id/text_view_5km_Value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif"
@@ -73,6 +73,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/text_view_5km_record"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
@@ -83,6 +84,7 @@
                     tools:text="22:04" />
 
                 <TextView
+                    android:id="@+id/text_view_5Km_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -90,7 +92,7 @@
                     tools:text="17/01/2024"
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/text_view_5km_value" />
+                    app:layout_constraintTop_toBottomOf="@id/text_view_5km_record" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -121,6 +123,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/text_view_10km_record"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
@@ -131,6 +134,7 @@
                     tools:text="22:04" />
 
                 <TextView
+                    android:id="@+id/text_view_10km_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -169,6 +173,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/text_view_half_Marathon_record"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
@@ -179,6 +184,7 @@
                     tools:text="22:04" />
 
                 <TextView
+                    android:id="@+id/text_view_half_marathon_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -218,6 +224,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/text_view_marathon_record"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
@@ -228,6 +235,7 @@
                     tools:text="22:04" />
 
                 <TextView
+                    android:id="@+id/text_view_marathon_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
