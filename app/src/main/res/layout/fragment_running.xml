@@ -66,10 +66,8 @@
                     android:id="@+id/text_view_5km_Value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif"
+                    style="@style/RecordNameTextAppearance"
                     android:text="@string/five_km_heading"
-                    android:textColor="?attr/colorPrimary"
-                    android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -77,9 +75,7 @@
                     android:id="@+id/text_view_5km_record"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-light"
-                    android:textColor="?attr/colorPrimary"
-                    android:textSize="20sp"
+                    style="@style/RecordValueTextAppearance"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="22:04" />
@@ -89,8 +85,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:fontFamily="sans-serif-light"
-                    android:textSize="14sp"
+                    style="@style/RecordDateTextAppearance"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/text_view_5km_record"
                     tools:text="17/01/2024" />
@@ -116,10 +111,8 @@
                     android:id="@+id/text_view_10km_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif"
+                    style="@style/RecordNameTextAppearance"
                     android:text="@string/ten_km_heading"
-                    android:textColor="?attr/colorPrimary"
-                    android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -127,9 +120,7 @@
                     android:id="@+id/text_view_10km_record"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-light"
-                    android:textColor="?attr/colorPrimary"
-                    android:textSize="20sp"
+                    style="@style/RecordValueTextAppearance"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="22:04" />
@@ -139,8 +130,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:fontFamily="sans-serif-light"
-                    android:textSize="14sp"
+                    style="@style/RecordDateTextAppearance"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/text_view_10km_value"
                     tools:text="17/01/2024" />
@@ -166,10 +156,8 @@
                     android:id="@+id/text_view_half_marathon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif"
+                    style="@style/RecordNameTextAppearance"
                     android:text="@string/half_marathon_heading"
-                    android:textColor="?attr/colorPrimary"
-                    android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -177,9 +165,7 @@
                     android:id="@+id/text_view_half_Marathon_record"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-light"
-                    android:textColor="?attr/colorPrimary"
-                    android:textSize="20sp"
+                    style="@style/RecordValueTextAppearance"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="22:04" />
@@ -189,8 +175,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:fontFamily="sans-serif-light"
-                    android:textSize="14sp"
+                    style="@style/RecordDateTextAppearance"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/text_view_half_marathon"
                     tools:text="17/01/2024" />
@@ -217,10 +202,8 @@
                     android:id="@+id/text_view_marathon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif"
+                    style="@style/RecordNameTextAppearance"
                     android:text="@string/marathon_heading"
-                    android:textColor="?attr/colorPrimary"
-                    android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -228,9 +211,7 @@
                     android:id="@+id/text_view_marathon_record"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-light"
-                    android:textColor="?attr/colorPrimary"
-                    android:textSize="20sp"
+                    style="@style/RecordValueTextAppearance"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="22:04" />
@@ -240,8 +221,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:fontFamily="sans-serif-light"
-                    android:textSize="14sp"
+                    style="@style/RecordDateTextAppearance"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/text_view_marathon"
                     tools:text="17/01/2024" />
