@@ -18,6 +18,8 @@ import androidx.fragment.app.commit
 import com.example.recordkeeper.cycling.CyclingFragment
 import com.example.recordkeeper.databinding.ActivityMainBinding
 import com.example.recordkeeper.running.RunningFragment
+import com.google.android.material.snackbar.Snackbar
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -46,15 +48,15 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val menuClickHandled = when (item.itemId) {
             R.id.reset_running -> {
-                showConfirmationDialog("running")
+                showConfirmationDialog(RUNNING_DISPLAY_VALUE)
                 true
             }
             R.id.reset_cycling -> {
-                showConfirmationDialog("cycling")
+                showConfirmationDialog(CYCLING_DISPLAY_VALUE)
                 true
             }
             R.id.reset_all -> {
-                showConfirmationDialog("all")
+                showConfirmationDialog(ALL_DISPLAY_VALUE)
                 true
             }
             else -> {
@@ -74,16 +76,27 @@ class MainActivity : AppCompatActivity() {
             .setPositiveButton("Yes"
             ) { _, _ ->
                 when(selection){
-                    "all" -> {
-                        getSharedPreferences("running", Context.MODE_PRIVATE).edit { clear() }
-                        getSharedPreferences("cycling", Context.MODE_PRIVATE).edit { clear() }
+                    ALL_DISPLAY_VALUE -> {
+                        getSharedPreferences(RunningFragment.FILENAME, Context.MODE_PRIVATE).edit { clear() }
+                        getSharedPreferences(CyclingFragment.FILENAME, Context.MODE_PRIVATE).edit { clear() }
                     }
-                    else -> getSharedPreferences(selection, Context.MODE_PRIVATE).edit { clear() }
+                    RUNNING_DISPLAY_VALUE -> getSharedPreferences(RunningFragment.FILENAME, Context.MODE_PRIVATE).edit { clear() }
+                    CYCLING_DISPLAY_VALUE -> getSharedPreferences(CyclingFragment.FILENAME, Context.MODE_PRIVATE).edit { clear() }
                 }
                 refreshCurrentFragment()
+                val snackbar = Snackbar.make(binding.frameContent, "Records cleared successfully!", Snackbar.LENGTH_SHORT)
+                showConfirmation(snackbar)
             }
             .setNegativeButton("No", null) // we can also pass null instead of dismiss()
             .show()
+    }
+
+    private fun showConfirmation(snackbar: Snackbar) {
+        snackbar.anchorView = binding.bottomNav
+        snackbar.setAction("Undo") {
+            // code to reset the records
+        }
+        snackbar.show()
     }
 
     private fun refreshCurrentFragment() {
@@ -106,5 +119,11 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.commit {
             replace(R.id.frame_content, CyclingFragment())
         }
+    }
+
+    companion object{
+        const val RUNNING_DISPLAY_VALUE = "cycling"
+        const val CYCLING_DISPLAY_VALUE = "running"
+        const val ALL_DISPLAY_VALUE = "all"
     }
 }

@@ -9,21 +9,23 @@ import android.os.Bundle
 import android.preference.PreferenceManager
 import android.system.Os.bind
 import android.system.Os.remove
+import android.view.MenuItem
 import androidx.core.content.edit
 import androidx.preference.Preference
 import com.example.recordkeeper.databinding.ActivityEditRecordBinding
 import com.example.recordkeeper.databinding.ActivityEditRunningRecordBinding
 import java.io.Serializable
 
+
 class EditRecordActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityEditRecordBinding
     private val screenData: ScreenData by lazy {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            intent.getSerializableExtra("screen_data", ScreenData::class.java) as ScreenData
+            intent.getSerializableExtra(INTENT_EXTRA_SCREEN_DATA, ScreenData::class.java) as ScreenData
         } else {
             @Suppress("DEPRECATION")
-            intent.getSerializableExtra("screen_data") as ScreenData
+            intent.getSerializableExtra(INTENT_EXTRA_SCREEN_DATA) as ScreenData
         }
     }
     private val recordPreferences by lazy {
@@ -40,6 +42,16 @@ class EditRecordActivity : AppCompatActivity() {
         setupUi()
         displayRecord()
 
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            android.R.id.home -> {
+                onBackPressedDispatcher.onBackPressed()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     fun setupUi() {
@@ -59,26 +71,26 @@ class EditRecordActivity : AppCompatActivity() {
     fun displayRecord() {
         binding.editTextRecord.setText(
             recordPreferences.getString(
-                "${screenData.record} record",
+                "${screenData.record} $SHARED_PREFERENCE_RECORD_KEY",
                 null
             )
         )
-        binding.editTextDate.setText(recordPreferences.getString("${screenData.record} date", null))
+        binding.editTextDate.setText(recordPreferences.getString("${screenData.record} $SHARED_PREFERENCE_DATE_KEY", null))
     }
 
     private fun saveRecord() {
         val record = binding.editTextRecord.text.toString()
         val date = binding.editTextDate.text.toString()
         recordPreferences.edit {
-            putString("${screenData.record} record", record)
-            putString("${screenData.record} date", date)
+            putString("${screenData.record} $SHARED_PREFERENCE_RECORD_KEY", record)
+            putString("${screenData.record} $SHARED_PREFERENCE_DATE_KEY", date)
         }
     }
 
     private fun clearRecord() {
         recordPreferences.edit {
-            remove("${screenData.record} record")
-            remove("${screenData.record} date")
+            remove("${screenData.record} $SHARED_PREFERENCE_RECORD_KEY")
+            remove("${screenData.record} $SHARED_PREFERENCE_DATE_KEY")
         }
     }
 
@@ -87,4 +99,10 @@ class EditRecordActivity : AppCompatActivity() {
         val sharedPreferencesName: String,
         val recordFieldHint: String
     ) : Serializable
+
+    companion object{
+        const val SHARED_PREFERENCE_RECORD_KEY = "record"
+        const val SHARED_PREFERENCE_DATE_KEY = "date"
+        const val INTENT_EXTRA_SCREEN_DATA = "screen_data"
+    }
 }

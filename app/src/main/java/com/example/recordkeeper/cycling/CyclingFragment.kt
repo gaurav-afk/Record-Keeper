@@ -30,13 +30,13 @@ class CyclingFragment:Fragment() {
     }
 
     private fun displayRecords() {
-        val cyclingPreferences: SharedPreferences = requireContext().getSharedPreferences("cycling", Context.MODE_PRIVATE)
-        binding.textViewLongestRideValue.text = cyclingPreferences.getString("Longest Ride record", null)
-        binding.textViewLongestRideDate.text = cyclingPreferences.getString("Longest Ride date", null)
-        binding.textViewBiggestClimbValue.text = cyclingPreferences.getString("Biggest Climb record", null)
-        binding.textViewBiggestClimbDate.text = cyclingPreferences.getString("Biggest Climb date", null)
-        binding.textViewBestAverageSpeedValue.text = cyclingPreferences.getString("Best Average Speed record", null)
-        binding.textViewBestAverageSpeedDate.text = cyclingPreferences.getString("Best Average Speed date", null)
+        val cyclingPreferences: SharedPreferences = requireContext().getSharedPreferences(FILENAME, Context.MODE_PRIVATE)
+        binding.textViewLongestRideValue.text = cyclingPreferences.getString("Longest Ride ${EditRecordActivity.SHARED_PREFERENCE_RECORD_KEY}", null)
+        binding.textViewLongestRideDate.text = cyclingPreferences.getString("Longest Ride ${EditRecordActivity.SHARED_PREFERENCE_DATE_KEY}", null)
+        binding.textViewBiggestClimbValue.text = cyclingPreferences.getString("Biggest Climb ${EditRecordActivity.SHARED_PREFERENCE_RECORD_KEY}", null)
+        binding.textViewBiggestClimbDate.text = cyclingPreferences.getString("Biggest Climb ${EditRecordActivity.SHARED_PREFERENCE_DATE_KEY}", null)
+        binding.textViewBestAverageSpeedValue.text = cyclingPreferences.getString("Best Average Speed ${EditRecordActivity.SHARED_PREFERENCE_RECORD_KEY}", null)
+        binding.textViewBestAverageSpeedDate.text = cyclingPreferences.getString("Best Average Speed ${EditRecordActivity.SHARED_PREFERENCE_DATE_KEY}", null)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -52,7 +52,11 @@ class CyclingFragment:Fragment() {
 
     private fun launchRunningRecordScreen(record: String, recordFieldHint: String) {
         val intent = Intent(context, EditRecordActivity::class.java)
-        intent.putExtra("screen_data", EditRecordActivity.ScreenData(record, "cycling", recordFieldHint))
+        intent.putExtra("screen_data", EditRecordActivity.ScreenData(record, FILENAME, recordFieldHint))
         startActivity(intent)
+    }
+
+    companion object {
+        const val FILENAME = "cycling"
     }
 }
