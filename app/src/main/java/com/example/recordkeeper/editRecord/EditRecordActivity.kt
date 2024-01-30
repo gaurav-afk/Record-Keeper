@@ -13,7 +13,6 @@ import android.view.MenuItem
 import androidx.core.content.edit
 import androidx.preference.Preference
 import com.example.recordkeeper.databinding.ActivityEditRecordBinding
-import com.example.recordkeeper.databinding.ActivityEditRunningRecordBinding
 import java.io.Serializable
 
 
